@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if error %}
+    <p><strong> Error: </strong></p> {{error}}
+    {% endif %}    </body>
+    <ul>
+    {% if form.errors %}
+      <li>{{ form.errors }}</li>
+    {% endif %}
+  </ul>
+{% endblock %}

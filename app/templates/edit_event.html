@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+        {% if current_user.is_authenticated %}
+         <p>Hi {{ current_user.user_email }}!</p>
+         {% endif %}
+     <div class="formwrapper">
+	    <h2 class="title">Event</h2>
+	    <form method="POST" >
+			{{ form.csrf_token }}
+		<div class="form-field">
+			{{ form.topic.label }}
+			{{ form.topic }}
+		</div>
+    		<div class="form-field">
+    			{{ form.text.label }}
+    			{{ form.text }}
+        </div>
+    <div class="form-field">
+			{{ form.end_date.label }}
+			{{ form.end_date }}
+		</div>
+
+		<input type="submit" value="Go">
+	    </form>
+     </div>
+{% endblock %}

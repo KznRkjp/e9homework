@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Author</td>
+        <td>Time added</td>
+        <td>Ends</td>
+        <td>Topic</td>
+        <td>Text</td>
+      </tr>
+
+    </thead>
+
+    {% for post in posts %}
+      <tr>
+
+        {% for user in users %}
+          {% if user._id == post.creator_id %}
+            <td>{{user.user_email}}</td>
+          {% endif %}
+        {% endfor %}
+
+        <td>{{post.date_start.strftime('%d/%m/%y')}}</td>
+        <td>{{post.date_end.strftime('%d/%m/%y')}}</td>
+        <td>{{post.topic}}</td>
+        <td>{{post.text}}</td>
+      </tr>
+
+    {% endfor %}
+  </table>
+{% endblock %}

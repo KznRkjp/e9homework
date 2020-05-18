@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Time added</td>
+        <td>Ends</td>
+        <td>Topic</td>
+        <td>Text</td>
+        <td></td>
+      </tr>
+
+    </thead>
+
+    {% for post in posts %}
+      <tr>
+
+        <td><a href="/edit/{{post._id}}">{{post.date_start.strftime('%d/%m/%y')}}</a></td>
+        <td><a href="/edit/{{post._id}}">{{post.date_end.strftime('%d/%m/%y')}}</a></td>
+        <td><a href="/edit/{{post._id}}">{{post.topic}}</a></td>
+        <td><a href="/edit/{{post._id}}">{{post.text}}</a></td>
+        <td><a class="btn btn-danger btn-sm" href="delete/{{post._id}}" role="button">Delete</a></td>
+      </tr>
+
+    {% endfor %}
+  </table>
+{% endblock %}
